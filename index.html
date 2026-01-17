@@ -1,0 +1,314 @@
+﻿<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Digital Dossier / Character Profile: DecaySchulz" />
+  <title>DecaySchulz — Digital Dossier</title>
+
+  <!-- Replace/extend these in style.css -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="mode-sober">
+  <!-- LANDING OVERLAY -->
+  <div id="landing" class="landing" aria-hidden="false">
+    <div class="landing__panel" role="dialog" aria-modal="true" aria-label="Access Gate">
+      <div class="landing__topline">
+        <span class="dot dot--red"></span>
+        <span class="dot dot--amber"></span>
+        <span class="dot dot--green"></span>
+        <span class="landing__label">SECURE TERMINAL</span>
+      </div>
+
+      <div class="landing__screen">
+        <p class="landing__mono" id="typingLine">ACCESSING FILE...</p>
+        <p class="landing__mono landing__mono--sub" id="grantedLine" hidden>ACCESS GRANTED</p>
+
+        <button id="openDossierBtn" class="btn btn--primary" type="button" hidden>
+          OPEN DOSSIER
+        </button>
+        <p class="landing__hint">Press Enter to continue</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKGROUND OVERLAYS (scanlines/grain handled in CSS) -->
+  <div class="fx fx--scanlines" aria-hidden="true"></div>
+  <div class="fx fx--grain" aria-hidden="true"></div>
+
+  <!-- MAIN CONTENT -->
+  <header class="topbar">
+    <div class="topbar__left">
+      <div class="topbar__title">
+        <span class="kicker">SUBJECT:</span>
+        <span class="subject">DECAYSCHULZ</span>
+      </div>
+      <div class="topbar__meta">
+        <span class="chip chip--mono">FILE: DS-027</span>
+        <span class="chip chip--mono">CLEARANCE: V0</span>
+      </div>
+    </div>
+
+    <div class="topbar__right">
+      <div id="statusPill" class="status" aria-live="polite">
+        <span class="status__label">STATUS:</span>
+        <span class="status__value">ACTIVE</span>
+      </div>
+
+      <button id="modeToggle" class="btn btn--ghost" type="button" aria-pressed="false">
+        Sober Mode
+      </button>
+    </div>
+  </header>
+
+  <main class="page" id="page">
+    <!-- HERO / IDENTITY -->
+    <section class="section" id="identity">
+      <div class="section__head">
+        <h1 class="h1">Identity File</h1>
+        <p class="subtle">A leaked dossier compiled from sightings, hearsay, and questionable decisions.</p>
+      </div>
+
+      <div class="grid grid--identity">
+        <!-- AVATAR / IMAGE (replace src) -->
+        <figure class="portrait">
+          <!-- Replace this image with your own -->
+          <img
+            class="portrait__img"
+            src="file_565c7ad9-9dbc-41c0-b75a-b53f45c28ef3.png"
+            alt="DecaySchulz avatar (replaceable placeholder)"
+            loading="lazy"
+          />
+          <figcaption class="portrait__cap">
+            <span class="chip chip--danger chip--mono">CLASSIFIED</span>
+            <span class="chip chip--mono">LAST SEEN: SMASHED HQ</span>
+          </figcaption>
+        </figure>
+
+        <!-- IDENTITY CARD -->
+        <article class="card card--terminal" aria-label="Identity details">
+          <div class="card__head">
+            <h2 class="h2">SUBJECT PROFILE</h2>
+            <span class="badge badge--pulse">LIVE</span>
+          </div>
+
+          <dl class="kv" id="identityKv">
+            <div class="kv__row">
+              <dt class="kv__k">ALIAS</dt>
+              <dd class="kv__v" data-scramble="true">DecaySchulz</dd>
+            </div>
+            <div class="kv__row">
+              <dt class="kv__k">CLASSIFICATION</dt>
+              <dd class="kv__v" data-scramble="true">Social Hazard</dd>
+            </div>
+            <div class="kv__row">
+              <dt class="kv__k">PRONOUNS</dt>
+              <dd class="kv__v" data-scramble="true">Chairs/Chairs</dd>
+            </div>
+            <div class="kv__row">
+              <dt class="kv__k">AGE</dt>
+              <dd class="kv__v" data-scramble="true">27 (Allegedly)</dd>
+            </div>
+            <div class="kv__row">
+              <dt class="kv__k">KNOWN HABITS</dt>
+              <dd class="kv__v" data-scramble="true">Alcohol, VRChat, Chaos</dd>
+            </div>
+            <div class="kv__row">
+              <dt class="kv__k">CURRENT QUOTE</dt>
+              <dd class="kv__v" data-scramble="true">“It’s that time again, drink up.”</dd>
+            </div>
+          </dl>
+
+          <!-- Optional secondary image slot (replace src) -->
+          <div class="card__media">
+            <img
+              class="card__img"
+              src="VRChat_2026-01-04_06-00-31.649_1920x1080.png"
+              alt="Replaceable banner image"
+              loading="lazy"
+            />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CHARGES / ALLEGATIONS -->
+    <section class="section" id="charges">
+      <div class="section__head">
+        <h2 class="h1">Charges / Allegations</h2>
+        <p class="subtle">Click to expand. Expect redactions.</p>
+      </div>
+
+      <div class="card card--sheet" aria-label="Charges list">
+        <div class="accordion" id="chargesAccordion">
+          <!-- Item 1 -->
+          <details class="acc">
+            <summary class="acc__sum">
+              <span class="acc__title">Gang Sign Master</span>
+              <span class="acc__meta chip chip--mono">EVID-042</span>
+            </summary>
+            <div class="acc__body">
+              <p>Reportedly fluent in hand signals that mean absolutely nothing and everything at once.</p>
+              <p class="redacted">[REDACTED █████ ███ ██████ ███]</p>
+              <span class="chip chip--danger chip--mono">RISK: MEDIUM</span>
+            </div>
+          </details>
+
+          <!-- Item 2 -->
+          <details class="acc">
+            <summary class="acc__sum">
+              <span class="acc__title">BedSheet Masturbator</span>
+              <span class="acc__meta chip chip--mono">EVID-113</span>
+            </summary>
+            <div class="acc__body">
+              <p>For legal reasons, we cannot elaborate. For hygienic reasons, we refuse.</p>
+              <p class="redacted">[REDACTED ███████████]</p>
+              <span class="chip chip--danger chip--mono">RISK: ????</span>
+            </div>
+          </details>
+
+          <!-- Item 3 -->
+          <details class="acc">
+            <summary class="acc__sum">
+              <span class="acc__title">RuneScape ERPer</span>
+              <span class="acc__meta chip chip--mono">EVID-007</span>
+            </summary>
+            <div class="acc__body">
+              <p>Witnesses claim the roleplay started as “just a bit” and became an organized lifestyle.</p>
+              <p class="redacted">[REDACTED ████ “🗡️” ██████]</p>
+              <span class="chip chip--warn chip--mono">RISK: HIGH</span>
+            </div>
+          </details>
+
+          <!-- Item 4 -->
+          <details class="acc">
+            <summary class="acc__sum">
+              <span class="acc__title">Professional Wife of Epsi</span>
+              <span class="acc__meta chip chip--mono">EVID-204</span>
+            </summary>
+            <div class="acc__body">
+              <p>Contractual marriage. Competitive benefits. Overtime payable in chaos and cocktails.</p>
+              <p class="redacted">[REDACTED ████████ “YES, CHEF” ███]</p>
+              <span class="chip chip--mono">RISK: DOMESTIC</span>
+            </div>
+          </details>
+
+          <!-- Item 5 -->
+          <details class="acc">
+            <summary class="acc__sum">
+              <span class="acc__title">Massive Gooner</span>
+              <span class="acc__meta chip chip--mono">EVID-666</span>
+            </summary>
+            <div class="acc__body">
+              <p>Large quantities of unproductive enthusiasm have been documented.</p>
+              <p class="redacted">[REDACTED █████████████████]</p>
+              <span class="chip chip--warn chip--mono">RISK: EXTREME</span>
+            </div>
+          </details>
+
+          <!-- Item 6 -->
+          <details class="acc">
+            <summary class="acc__sum">
+              <span class="acc__title">Raging Alcoholic</span>
+              <span class="acc__meta chip chip--mono">EVID-808</span>
+            </summary>
+            <div class="acc__body">
+              <p>Repeatedly observed entering “SMASHED” and leaving with questionable confidence.</p>
+              <p class="redacted">[REDACTED ███ “ONE MORE” █████]</p>
+              <span class="chip chip--danger chip--mono">RISK: VERY HIGH</span>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+      <!-- Tooltip element (positioned by JS) -->
+      <div id="tooltip" class="tooltip" role="tooltip" aria-hidden="true"></div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="section" id="links">
+      <div class="section__head">
+        <h2 class="h1">Data Links</h2>
+        <p class="subtle" id="linkSub">Select a node.</p>
+      </div>
+
+      <div class="links">
+        <!-- DISCORD -->
+        <a
+          class="linkchip"
+          href="https://discord.com/users/191397233919262721"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Discord profile"
+          data-sub="DISCORD — ONLINE"
+        >
+          <span class="linkchip__k">DISCORD</span>
+          <span class="linkchip__v">decayschulz</span>
+        </a>
+
+        <!-- X / TWITTER -->
+        <a
+          class="linkchip"
+          href="https://x.com/DecaySchulz?s=20"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open X profile"
+          data-sub="X — WATCHING"
+        >
+          <span class="linkchip__k">X</span>
+          <span class="linkchip__v">@DecaySchulz</span>
+        </a>
+
+        <!-- TWITCH -->
+        <a
+          class="linkchip"
+          href="https://www.twitch.tv/decayschulz"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Twitch channel"
+          data-sub="TWITCH — PROBABLY DRUNK"
+        >
+          <span class="linkchip__k">TWITCH</span>
+          <span class="linkchip__v">twitch.tv/decayschulz</span>
+        </a>
+
+        <!-- YOUTUBE -->
+        <a
+          class="linkchip"
+          href="https://www.youtube.com/@DecaySchulz"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open YouTube channel"
+          data-sub="YOUTUBE — ARCHIVED EVIDENCE"
+        >
+          <span class="linkchip__k">YOUTUBE</span>
+          <span class="linkchip__v">youtube.com/@DecaySchulz</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section class="section" id="disclaimer">
+      <div class="card card--warning">
+        <div class="warn">
+          <span class="warn__icon" aria-hidden="true">⚠</span>
+          <div>
+            <h2 class="h2">DISCLAIMER</h2>
+            <p>Interaction may result in emotional damage, hangovers, or ERP incidents.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Optional: floating “back to top” -->
+  <a class="toTop" href="#identity" aria-label="Back to top">↑</a>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
